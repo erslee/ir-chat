@@ -1,0 +1,23 @@
+.sendImage {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.text {
+    flex: 1;
+    padding: 5px;
+    outline: none;
+    border: 0;
+}
+
+.inputForm {
+    flex: 0 1 auto;
+    display: flex;
+    margin: 10px;
+}
+
+
+.input-form-text:active, .input-form-text:focus{
+    outline: none;
+    border: 0;
+}

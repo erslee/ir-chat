@@ -1,0 +1,17 @@
+.chat {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.header {
+    flex: 0 1 auto;
+    margin: 10px;
+}
+
+.messageList {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 10px;
+    background-color: #E3E9F0;
+}

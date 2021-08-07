@@ -1,0 +1,10 @@
+.chatHeader {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.chatHeadeName {
+    flex: 1 1 auto;
+    margin: 0 10px;
+}
