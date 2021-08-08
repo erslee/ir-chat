@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import "react-chat-elements/dist/main.css";
 import style from './style.module.css'
 
-const MessageList = ({ isTyping = false, className, ...props }) => {
+export const MessageList = ({ isTyping = false, className, ...props }) => {
   const classNames = `${className} ${style.background}`
   return (
     <Fragment>
       <RCEMessageList className={classNames} {...props}></RCEMessageList>
-      <div className={style.background}>{isTyping && '...'}</div>
+      <div data-testid="isTyping" className={style.background}>{isTyping && '...'}</div>
     </Fragment>
   );
 };
@@ -19,5 +19,3 @@ MessageList.propTypes = {
   dataSource: PropTypes.array.isRequired
   
 }
-
-export default MessageList;

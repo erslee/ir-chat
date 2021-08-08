@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChatHeader from "./index";
+import { ChatHeader } from "./index";
 
 export default {
   title: "Components/Chat Header",

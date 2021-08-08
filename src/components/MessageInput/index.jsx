@@ -3,7 +3,7 @@ import { planeImage } from "../../helpers/constants";
 import PropTypes from "prop-types";
 import style from "./style.module.css";
 
-const MessageInput = ({ onSubmit, onChange }) => {
+export const MessageInput = ({ onSubmit, onChange }) => {
   const [msg, setMsg] = useState("");
   const submitForm = (event) => {
     event.preventDefault();
@@ -18,8 +18,9 @@ const MessageInput = ({ onSubmit, onChange }) => {
   };
 
   return (
-    <form onSubmit={submitForm} className={style.inputForm} >
+    <form onSubmit={submitForm} className={style.inputForm}>
       <input
+        data-testid="input"
         className={style.text}
         placeholder="Type here..."
         multiline="false"
@@ -33,7 +34,13 @@ const MessageInput = ({ onSubmit, onChange }) => {
         type="submit"
         disabled={msg.length < 1}
       /> */}
-      <img src={planeImage} onClick={submitForm} alt="send" className={style.sendImage} />
+      <img
+        data-testid="sendbtn"
+        src={planeImage}
+        onClick={submitForm}
+        alt="send"
+        className={style.sendImage}
+      />
     </form>
   );
 };
@@ -42,5 +49,3 @@ MessageInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func,
 };
-
-export default MessageInput;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import MessageInput from "../MessageInput";
-import MessageList from "../MessageList";
-import ChatHeader from "../ChatHeader";
+import { MessageInput } from "../MessageInput";
+import { MessageList } from "../MessageList";
+import { ChatHeader } from "../ChatHeader";
 import styles from './style.module.css'
 
 export const Chat = ({member, initialMessages, typing}) => {

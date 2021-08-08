@@ -1,6 +1,6 @@
 import React from "react";
 
-import MessageList from "./index";
+import { MessageList } from "./index";
 
 export default {
   title: "Components/Message List",
