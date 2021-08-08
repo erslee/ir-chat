@@ -13,11 +13,6 @@
 .inputForm {
     flex: 0 1 auto;
     display: flex;
-    margin: 10px;
-}
-
-
-.input-form-text:active, .input-form-text:focus{
-    outline: none;
-    border: 0;
+    padding: 10px;
+    background-color: #fff;
 }

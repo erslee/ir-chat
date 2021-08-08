@@ -1,31 +1,14 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import MessageInput from "../MessageInput";
 import MessageList from "../MessageList";
 import ChatHeader from "../ChatHeader";
-import "react-chat-elements/dist/main.css";
 import styles from './style.module.css'
 
-const member = {
-  name: "Donald",
-  picture: "https://loremflickr.com/45/45",
-  lastActivityTime: Date.now(),
-  // acuity: 0
-}
+export const Chat = ({member, initialMessages, typing}) => {
+  const [messages, setMessages] = useState(initialMessages);
 
-export const Chat = () => {
-  const [messages, setMessages] = useState([
-    {
-      avatar: "https://loremflickr.com/25/25",
-      title: 'Elit magna',
-      avatarFlexible: true,
-      position: "left",
-      type: "text",
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      date: new Date(),
-    },
-  ]);
-
-  const [typing, setTyping] = useState(false);
+  // const [typing, setTyping] = useState(typing);
 
   const formatMsg = (msg) => ({
     position: "right",
@@ -39,7 +22,7 @@ export const Chat = () => {
 
   return (
     <div className={styles.chat}>
-      <ChatHeader className={styles.header} dataSource={member} />
+      <ChatHeader className={styles.header} {...member} />
       <MessageList
         className={styles.messageList}
         dataSource={messages}
@@ -49,3 +32,34 @@ export const Chat = () => {
     </div>
   );
 };
+
+Chat.propTypes = {
+  initialMessages: PropTypes.array,
+  typing: PropTypes.bool,
+  member: PropTypes.shape({
+    name: PropTypes.string,
+    picture: PropTypes.string,
+    lastActivityTime: PropTypes.number
+  })
+}
+
+Chat.defaultProps = {
+  initialMessages: [
+    {
+      avatar: "https://loremflickr.com/25/25",
+      title: 'Elit magna',
+      avatarFlexible: true,
+      position: "left",
+      type: "text",
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      date: new Date(),
+    },
+  ],
+  typing: false,
+  member: {
+    name: "Donald",
+    picture: "https://loremflickr.com/45/45",
+    lastActivityTime: Date.now(),
+    // acuity: 0
+  }
+}
