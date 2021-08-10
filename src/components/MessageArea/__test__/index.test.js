@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { MessageList } from "../index";
+import { MessageArea } from "../index";
 
 const dataItem = {
   avatar: "https://loremflickr.com/25/25",
@@ -16,10 +16,10 @@ test("message list contains messages", async () => {
   const data = [];
 
   for (let i = 0; i < itemsNum; i++) {
-    data.push(dataItem);
+    data.push({...dataItem, id: i });
   }
 
-  const component = render(<MessageList dataSource={data} />);
+  const component = render(<MessageArea dataSource={data} />);
 
   const items = await component.findAllByText("Lorem ipsum dolor sit amet");
 
@@ -27,13 +27,13 @@ test("message list contains messages", async () => {
 });
 
 test("is typing symbol appears", async () => {
-  const component = render(<MessageList dataSource={[]} isTyping={false} />);
+  const component = render(<MessageArea dataSource={[]} isTyping={false} />);
 
   const typingIndicator = await component.findByTestId('isTyping');
 
   expect(typingIndicator.textContent).toBe('');
 
-  component.rerender(<MessageList dataSource={[]} isTyping={true} />)
+  component.rerender(<MessageArea dataSource={[]} isTyping={true} />)
 
   expect(typingIndicator.textContent).toBe('...');
 })

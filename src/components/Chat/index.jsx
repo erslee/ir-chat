@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { MessageInput } from "../MessageInput";
-import { MessageList } from "../MessageList";
+import { MessageArea } from "../MessageArea";
 import { ChatHeader } from "../ChatHeader";
 import styles from './style.module.css'
 
@@ -23,11 +23,11 @@ export const Chat = ({member, initialMessages, typing}) => {
   return (
     <div className={styles.chat}>
       <ChatHeader className={styles.header} {...member} />
-      <MessageList
+      <MessageArea
         className={styles.messageList}
         dataSource={messages}
         isTyping={typing}
-      ></MessageList>
+      ></MessageArea>
       <MessageInput onSubmit={addMessage} />
     </div>
   );
@@ -53,6 +53,7 @@ Chat.defaultProps = {
       type: "text",
       text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
       date: new Date(),
+      id: 9999
     },
   ],
   typing: false,

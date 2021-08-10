@@ -1,5 +1,6 @@
-import { Avatar } from "react-chat-elements";
 import PropTypes from "prop-types";
+
+import {Avatar} from '../Avatar';
 
 import styles from "./style.module.css";
 
@@ -7,10 +8,8 @@ export const ChatHeader = ({ name, picture }) => {
   return (
     <div className={styles.chatHeader}>
       <Avatar
-        src={picture}
-        alt={"logo"}
-        size="large"
-        type="circle flexible"
+        picture={picture}
+        name={"logo"}
       />
       <div data-testid="name" className={styles.chatHeadeName}>
         {name}
