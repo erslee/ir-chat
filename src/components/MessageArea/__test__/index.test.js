@@ -12,6 +12,8 @@ const dataItem = {
 };
 
 test("message list contains messages", async () => {
+  // jsdom issue https://github.com/jsdom/jsdom/issues/1695
+  window.HTMLElement.prototype.scrollIntoView = function() {};
   const itemsNum = Math.floor(Math.random() * 20);
   const data = [];
 
